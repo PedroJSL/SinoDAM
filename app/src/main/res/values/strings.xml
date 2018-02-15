@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">SinoDAM</string>
+    <string name="add">Añadir</string>
+    <string name="buscar">Buscar</string>
+    <string name="salir">Salir</string>
+    <string name="pjsl">© 2018 Pedro José Suárez Lantigua</string>
+</resources>
