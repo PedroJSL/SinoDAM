@@ -10,4 +10,8 @@
     <string name="inserte_un_sin_nimo">Inserte un sinónimo</string>
     <string name="inserte_otro_sin_nimo">Inserte otro sinónimo</string>
     <string name="cancelar">Cancelar</string>
+    <string name="sin_nimo_1">Sinónimo 1</string>
+    <string name="sin_nimo_2">Sinónimo 2</string>
+    <string name="error_sd">SD no disponible</string>
+    <string name="permiso_denegado">Permiso de escritura denegado en tarjeta SD</string>
 </resources>
