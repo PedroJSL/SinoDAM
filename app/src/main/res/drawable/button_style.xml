@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- boton pulsado -->
+    <item android:state_pressed="true">
+            <layer-list>
+                <!-- sombra -->
+                <item>
+                    <shape>
+                        <solid android:color="@color/colorAccent" />
+                        <corners android:radius="5dp" />
+                        <padding android:bottom="5dp" android:right="2dp" />
+                        <stroke android:width="1dp" android:color="@color/colorAccentLight" />
+                    </shape>
+                </item>
+                <!-- boton -->
+                <item>
+                    <shape>
+                        <solid android:color="@color/colorPrimaryLight" />
+                        <corners android:radius="5dp" />
+                        <stroke android:width="2dp" android:color="@color/colorPrimary" />
+                    </shape>
+                </item>
+            </layer-list>
+    </item>
+
+    <!-- boton activado -->
+    <item android:state_enabled="true">
+        <layer-list>
+            <!-- sombra -->
+            <item>
+                <shape>
+                    <solid android:color="@color/colorAccentDark" />
+                    <corners android:radius="5dp" />
+                    <padding android:bottom="5dp" android:right="2dp" />
+                    <stroke android:width="1dp" android:color="@color/colorAccent" />
+                </shape>
+            </item>
+            <!-- boton -->
+            <item>
+                <shape>
+                    <solid android:color="@color/colorPrimary" />
+                    <corners android:radius="5dp" />
+                    <stroke android:width="2dp" android:color="@color/colorPrimaryDark" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</selector>

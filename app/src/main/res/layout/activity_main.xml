@@ -20,24 +20,27 @@
        android:layout_height="wrap_content">
 
        <Button
+           android:id="@+id/bInsertar"
+           android:background="@drawable/button_style"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
-           android:text="@string/add"
-           android:onClick="insertarPalabra"/>
+           android:text="@string/add" />
 
        <Button
+           android:id="@+id/bBuscar"
+           android:background="@drawable/button_style"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:text="@string/buscar"
            android:layout_marginStart="20dp"
-           android:layout_marginEnd="20dp"
-           android:onClick="buscarPalabra"/>
+           android:layout_marginEnd="20dp" />
 
        <Button
+           android:id="@+id/bSalir"
+           android:background="@drawable/button_style"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
-           android:text="@string/salir"
-           android:onClick="salirAPP"/>
+           android:text="@string/salir" />
    </LinearLayout>
 
     <TextView

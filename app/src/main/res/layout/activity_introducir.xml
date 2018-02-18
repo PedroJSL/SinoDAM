@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context="com.example.pedro.sinodam.IntroducirActivity">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/fondo_insertar_palabra"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            style="@style/labelForET"
+            android:labelFor="@+id/etNPalabra"
+            android:text="@string/inserte_una_palabra" />
+
+        <EditText
+            android:id="@+id/etNPalabra"
+            style="@style/etIntroducir" />
+
+        <LinearLayout
+            android:padding="5dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/fondo_introducir_sinonimo"
+            android:gravity="center">
+
+            <TextView
+                android:labelFor="@+id/etSin1"
+                style="@style/labelForET"
+                android:text="@string/inserte_un_sin_nimo" />
+
+            <EditText
+                android:id="@+id/etSin1"
+                style="@style/etIntroducir" />
+
+            <TextView
+                android:labelFor="@+id/etSin2"
+                style="@style/labelForET"
+                android:text="@string/inserte_otro_sin_nimo"/>
+
+            <EditText
+                android:id="@+id/etSin2"
+                style="@style/etIntroducir"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_gravity="bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/bCancelar"
+            android:background="@drawable/button_style"
+            android:layout_gravity="start"
+            android:text="@string/cancelar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/bAceptar"
+            android:layout_gravity="end"
+            android:background="@drawable/button_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Aceptar"/>
+
+    </FrameLayout>
+
+
+</FrameLayout>

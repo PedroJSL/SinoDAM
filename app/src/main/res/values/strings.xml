@@ -4,4 +4,10 @@
     <string name="buscar">Buscar</string>
     <string name="salir">Salir</string>
     <string name="pjsl">© 2018 Pedro José Suárez Lantigua</string>
+    <string name="buscar_sino">Buscar Sinónimo</string>
+    <string name="nueva_palabra">Nueva Palabra</string>
+    <string name="inserte_una_palabra">Inserte una palabra nueva:</string>
+    <string name="inserte_un_sin_nimo">Inserte un sinónimo</string>
+    <string name="inserte_otro_sin_nimo">Inserte otro sinónimo</string>
+    <string name="cancelar">Cancelar</string>
 </resources>
