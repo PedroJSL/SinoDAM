@@ -28,7 +28,7 @@ public class ManipularFicheros {
         this.context = context;
         //this.permisoConcedido = permisoConcedido;
 
-        archivoExterno = new File(Environment.getExternalStorageDirectory().getAbsolutePath(),"/palabrasysinonimos.txt");
+        archivoExterno = new File(Environment.getExternalStorageDirectory().getAbsolutePath(),"palabrasysinonimos.txt");
 
         String estado = Environment.getExternalStorageState();
         switch (estado) {
