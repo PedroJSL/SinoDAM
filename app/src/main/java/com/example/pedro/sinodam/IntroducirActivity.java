@@ -25,6 +25,7 @@ public class IntroducirActivity extends AppCompatActivity implements View.OnClic
         etPalabra = findViewById(R.id.etNPalabra);
         etSin1 = findViewById(R.id.etSin1);
         etSin2 = findViewById(R.id.etSin2);
+        mf = new ManipularFicheros(this);
     }
 
     @Override
@@ -34,11 +35,11 @@ public class IntroducirActivity extends AppCompatActivity implements View.OnClic
                 finish();
                 break;
             case R.id.bAceptar:
-                peticionPermiso();
+             /*   peticionPermiso();
                 if(!permisoConcedido){
                     return;
                 }
-                mf = new ManipularFicheros(this,permisoConcedido);
+                mf = new ManipularFicheros(this,permisoConcedido);*/
                 guardarPalabra();
                 break;
         }
@@ -53,7 +54,7 @@ public class IntroducirActivity extends AppCompatActivity implements View.OnClic
         etSin2.setText("");
     }
 
-    private void peticionPermiso(){
+  /*  private void peticionPermiso(){
         if(ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)!= PackageManager.PERMISSION_GRANTED){
             ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.READ_EXTERNAL_STORAGE},PETICION_ESCRITURA_FICHERO_EXTERNO);
         }else{
@@ -71,5 +72,5 @@ public class IntroducirActivity extends AppCompatActivity implements View.OnClic
                     guardarPalabra();
                 }
         }
-    }
+    }*/
 }

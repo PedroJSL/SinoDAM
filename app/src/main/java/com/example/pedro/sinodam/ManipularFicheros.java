@@ -20,13 +20,14 @@ public class ManipularFicheros {
     private File archivoExterno;
     private boolean sdDisponible = false;
     private boolean sdAccesoEscritura = false;
-    private boolean permisoConcedido;
+   // private boolean permisoConcedido;
 
 
-    public ManipularFicheros(Context context, boolean permisoConcedido) {
+   // public ManipularFicheros(Context context, boolean permisoConcedido) {
+    public ManipularFicheros(Context context){
         this.context = context;
-        this.permisoConcedido = permisoConcedido;
-        ;
+        //this.permisoConcedido = permisoConcedido;
+
         archivoExterno = new File(Environment.getExternalStorageDirectory().getAbsolutePath(),"/palabrasysinonimos.txt");
 
         String estado = Environment.getExternalStorageState();
@@ -59,7 +60,7 @@ public class ManipularFicheros {
     }
 
     public void escribirFicheroExterno(String p) {
-        if (sdDisponible && sdAccesoEscritura&&permisoConcedido) {
+       /*if (sdDisponible && sdAccesoEscritura&&permisoConcedido) {
             try{
                 BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(archivoExterno)));
                 bw.write(p);
@@ -73,6 +74,20 @@ public class ManipularFicheros {
             Toast.makeText(context, R.string.permiso_denegado,Toast.LENGTH_SHORT).show();
         }else{
             Toast.makeText(context, R.string.error_sd_denegado,Toast.LENGTH_SHORT).show();
+        }*/
+
+        if (sdDisponible && sdAccesoEscritura) {
+            try{
+                BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(archivoExterno)));
+                bw.write(p);
+                bw.close();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }else if(!sdDisponible){
+            Toast.makeText(context,context.getString(R.string.error_sd),Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(context, R.string.permiso_denegado,Toast.LENGTH_SHORT).show();
         }
 
     }
