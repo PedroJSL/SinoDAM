@@ -14,4 +14,5 @@
     <string name="sin_nimo_2">Sinónimo 2</string>
     <string name="error_sd">SD no disponible</string>
     <string name="permiso_denegado">Permiso de escritura denegado en tarjeta SD</string>
+    <string name="error_sd_denegado">Acceso a la tarjeta SD denegado</string>
 </resources>

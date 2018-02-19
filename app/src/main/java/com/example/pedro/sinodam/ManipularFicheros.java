@@ -17,15 +17,17 @@ import java.util.ArrayList;
 
 public class ManipularFicheros {
     private Context context;
-    private File rutaFE;
     private File archivoExterno;
     private boolean sdDisponible = false;
     private boolean sdAccesoEscritura = false;
+    private boolean permisoConcedido;
 
-    public ManipularFicheros(Context context) {
+
+    public ManipularFicheros(Context context, boolean permisoConcedido) {
         this.context = context;
-        rutaFE = Environment.getExternalStorageDirectory();
-        archivoExterno = new File(rutaFE.getAbsolutePath(),"/com.example.pedro.sinodam/palabrasysinonimos.txt");
+        this.permisoConcedido = permisoConcedido;
+        ;
+        archivoExterno = new File(Environment.getExternalStorageDirectory().getAbsolutePath(),"/palabrasysinonimos.txt");
 
         String estado = Environment.getExternalStorageState();
         switch (estado) {
@@ -57,12 +59,8 @@ public class ManipularFicheros {
     }
 
     public void escribirFicheroExterno(String p) {
-        if (sdDisponible && sdAccesoEscritura) {
+        if (sdDisponible && sdAccesoEscritura&&permisoConcedido) {
             try{
-                if(!archivoExterno.exists()){
-                    archivoExterno.createNewFile();
-                }
-
                 BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(archivoExterno)));
                 bw.write(p);
                 bw.close();
@@ -71,8 +69,10 @@ public class ManipularFicheros {
             }
         }else if(!sdDisponible){
             Toast.makeText(context,context.getString(R.string.error_sd),Toast.LENGTH_SHORT).show();
-        }else{
+        }else if(!sdAccesoEscritura){
             Toast.makeText(context, R.string.permiso_denegado,Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(context, R.string.error_sd_denegado,Toast.LENGTH_SHORT).show();
         }
 
     }
@@ -95,4 +95,8 @@ public class ManipularFicheros {
         }
         return lineas;
     }
+
+
+
+
 }
