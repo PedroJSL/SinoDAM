@@ -1,20 +1,15 @@
 package com.example.pedro.sinodam;
 
-import android.Manifest;
-import android.content.pm.PackageManager;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
-public class IntroducirActivity extends AppCompatActivity implements View.OnClickListener{
-    private static final int PETICION_ESCRITURA_FICHERO_EXTERNO = 1;
+public class IntroducirActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText etPalabra, etSin1, etSin2;
     private ManipularFicheros mf;
-    private boolean permisoConcedido = true;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,47 +25,42 @@ public class IntroducirActivity extends AppCompatActivity implements View.OnClic
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.bCancelar:
                 finish();
                 break;
             case R.id.bAceptar:
-             /*   peticionPermiso();
-                if(!permisoConcedido){
-                    return;
-                }
-                mf = new ManipularFicheros(this,permisoConcedido);*/
                 guardarPalabra();
                 break;
         }
     }
 
     private void guardarPalabra() {
-        mf.escribirFicheroInterno(etPalabra.getText().toString());
-        String palabraYsinonimos = etPalabra.getText().toString()+"-"+etSin1.getText().toString()+"-"+etSin2.getText().toString();
-        mf.escribirFicheroExterno(palabraYsinonimos);
-        etPalabra.setText("");
-        etSin1.setText("");
-        etSin2.setText("");
-    }
+        if (!etPalabra.getText().toString().equals("")) {
+            mf.escribirFicheroInterno(etPalabra.getText().toString());
 
-  /*  private void peticionPermiso(){
-        if(ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)!= PackageManager.PERMISSION_GRANTED){
-            ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.READ_EXTERNAL_STORAGE},PETICION_ESCRITURA_FICHERO_EXTERNO);
+            String palabra = etPalabra.getText().toString();
+            String sin1;
+            if (etSin1.getText().toString().equals("")) {
+                sin1 = " ";
+            } else {
+                sin1 = etSin1.getText().toString();
+            }
+            String sin2;
+            if (etSin2.getText().toString().equals("")) {
+                sin2 = " ";
+            } else {
+                sin2 = etSin2.getText().toString();
+            }
+            String palabraYsinonimos = palabra + "-" + sin1 + "-" + sin2 + "\n";
+            mf.escribirFicheroExterno(palabraYsinonimos);
+
+            etPalabra.setText("");
+            etSin1.setText("");
+            etSin2.setText("");
         }else{
-            permisoConcedido = true;
+            Toast.makeText(this,getString(R.string.int_palabra),Toast.LENGTH_SHORT).show();
         }
     }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        switch (requestCode){
-            case PETICION_ESCRITURA_FICHERO_EXTERNO:
-                if(grantResults!=null&&grantResults.length>0) {
-                    permisoConcedido = grantResults[0] == PackageManager.PERMISSION_GRANTED;
-                    mf = new ManipularFicheros(this,permisoConcedido);
-                    guardarPalabra();
-                }
-        }
-    }*/
 }

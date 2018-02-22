@@ -15,4 +15,5 @@
     <string name="error_sd">SD no disponible</string>
     <string name="permiso_denegado">Permiso de escritura denegado en tarjeta SD</string>
     <string name="error_sd_denegado">Acceso a la tarjeta SD denegado</string>
+    <string name="int_palabra">Introduzca una palabra</string>
 </resources>
